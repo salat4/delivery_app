@@ -1,0 +1,15 @@
+.header{
+    width: 1400px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+    box-sizing: border-box; 
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+.Nav{
+    display:flex;
+}
+.Shop{
+    margin-right: 30px;
+}
