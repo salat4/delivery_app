@@ -1,9 +1,16 @@
 import * as API from "../Fetch/Fetch";
+import { v4 as uuidv4 } from 'uuid';
 import { useState,useEffect } from "react";
 import style from './Shop.module.css'
+import {  useDispatch } from 'react-redux'
+import {addToOrder,countOrder} from '../../redux/orderSlice'
+
 const Shop = () => {
     const [shops, setShops] = useState(null);
     const [id, setId] = useState(0);
+    const [products, setProducts] = useState({
+        id:"",count:0
+    })
     useEffect(() => {
         async function FetchShop() {
             const shops = await API.FetchShop()
@@ -11,10 +18,13 @@ const Shop = () => {
         }
         FetchShop() 
     }, [])
-    
+      const dispatch = useDispatch()
+
+    const handleAddToOrder = (e) => {
+        dispatch(addToOrder({id:e.target.id,amount:1}))
+    }
 
     const handleShop = (e) => {
-        // console.log(e.target.id)
         setId(e.target.id)
     }
     return (
@@ -27,38 +37,35 @@ const Shop = () => {
                             <span id = {shop.id} className={style.Shop__Name}>{ shop.shop_name}</span>
                         </li>
                     ))}
-                </ul>
+                </ul>{
+                }
             </div>
             <div className={style.Product__box}>
                 <ul className={style.Product__List}>
                     {shops && 
                         
-                            shops[id].menu.map((product) => (
-                                <li className={ style.Product__Item}>
-                                    <img alt="product"></img>
+                        shops[id].menu.map((products) => (
+                            products.product.map((product) => (
+                                 <li key = {uuidv4()} id = {uuidv4()} className={style.Product__Item}>
+                                    {/* <img alt="product"></img> */}
                                     <div className={style.Product__Description}>
-                                        <span className={style.Product__Description__Item}>{product.name}</span>  
-                                        <div className={style.Product__Description__Item}>{product.sizes.map((size) => (
-                                            <span className={style.Product__Description__Size}>{ size}</span>
-                                        ))}</div> 
-                                        <span className={style.Product__Description__Item}>{ product.price}</span>
+                                        <span className={style.Product__Description__Item}>{product.name}</span> 
+                                        <span>{product.price}$</span>
+                                        <button id={product.id} onClick={handleAddToOrder}>Add to cart</button>
                                     </div>
-                                    
-                                    
                                 </li>
+                                ))
                             ))}
-                        
-                        
-                        {/* {  shops &&  shops.map((shop) => (
-                            <li key = {shop.id} className={style.Product__Item}>
-                                <span className={style.Product__Name}>{shop.shop_name}</span>
-                                <span className={style.Product__Price}>{shop.shop_name}</span>
-                                
-                            </li>
-                        ))} */}
                     </ul>
             </div>
         </section>
     )
 }
 export default Shop
+
+
+
+
+
+
+ 

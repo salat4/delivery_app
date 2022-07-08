@@ -1,0 +1,175 @@
+{
+  "shop": [
+    {
+      "id": 0,
+      "shop_name": "Pizza",
+      "menu": [
+        {
+          "name": "Pepperoni",
+          "sizes": [
+            "small",
+            "medium",
+            "big"
+          ],
+          "price": [
+            10,
+            15,
+            20
+          ]
+        },
+        {
+          "name": "Carbonara",
+          "sizes": [
+            "small",
+            "medium",
+            "big"
+          ],
+          "price": [
+            15,
+            17,
+            23
+          ]
+        },
+        {
+          "name": "BBQ",
+          "sizes": [
+            "small",
+            "medium",
+            "big"
+          ],
+          "price": [
+            14,
+            16,
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "shop_name": "Mexico",
+      "menu": [
+        {
+          "name": "Buritos",
+          "sizes": [
+            "chicken",
+            "spicy"
+          ],
+          "price": [
+            10,
+            11
+          ]
+        },
+        {
+          "name": "Nachos",
+          "sizes": [
+            "super",
+            "chicken",
+            "guacamole"
+          ],
+          "price": [
+            12,
+            11,
+            9
+          ]
+        },
+        {
+          "name": "Taco",
+          "sizes": [
+            "standart",
+            "supreme"
+          ],
+          "price": [
+            5,
+            7
+          ]
+        },
+        {
+          "name": "Quesadillas",
+          "sizes": [
+            "chicken",
+            "spicy",
+            "chicken with avocado",
+            "veal"
+          ],
+          "price": [
+            14,
+            16,
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "shop_name": "FastFood",
+      "menu": [
+        {
+          "name": "Burger",
+          "sizes": [
+            "chicken",
+            "fish",
+            "double",
+            "veal"
+          ],
+          "price": [
+            7,
+            7,
+            11,
+            9
+          ]
+        },
+        {
+          "name": "Naggets",
+          "sizes": [
+            "7 uds",
+            "10 uds",
+            "15 uds",
+            "18 uds"
+          ],
+          "price": [
+            7,
+            10,
+            14,
+            16
+          ]
+        },
+        {
+          "name": "Fries",
+          "sizes": [
+            "small",
+            "medium",
+            "big"
+          ],
+          "price": [
+            2,
+            5,
+            7
+          ]
+        },
+        {
+          "name": "Drinks",
+          "brand": [
+            "Water",
+            "Coca",
+            "Fanta",
+            "Sprite",
+            "Fresh"
+          ],
+          "price": [
+            3,
+            5,
+            5,
+            5,
+            7
+          ],
+          "cold": [
+            "with ice",
+            "without ice"
+          ]
+        }
+      ]
+    }
+  ],
+  "order": []
+}

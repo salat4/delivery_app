@@ -13,3 +13,15 @@ export const FetchShop = async() =>{
         console.error(error);
       }
 }
+
+
+export const FetchProduct = async (ids) => {
+    const payload = ids.join('&id=');
+    try {
+        const response = await axios.get(`/product?id=${payload}`)
+         return response.data;
+    }
+  catch (error) {
+        console.error(error);
+      }
+}
