@@ -1,6 +1,7 @@
 # start DB
-npm install -g json-server
-json-server --watch db.json
+npm install -g json-server.
+#
+json-server --watch db.json.
 
 
 # Getting Started with Create React App
