@@ -20,14 +20,4 @@ export const orderSlice = createSlice({
   },
 });
 
-export const cartSlice = createSlice({
-  name: "cart",
-  initialState: [],
-  reducers: {
-    countOrder: (state, action) => {
-      state.push(action.payload);
-    },
-  },
-});
-export const { countOrder } = cartSlice.actions;
 export const { addToOrder, setAmount, resetOrder } = orderSlice.actions;
