@@ -1,13 +1,17 @@
 # start DB
+
 Download and install mongoDB and node.js
 
 Run mongoDB server using official site instruction respective to your OS
+
 
 From folder of https://github.com/salat4/delivery_server run command 
 
 `npm install`
 
 `node initdb.js`
+
+# start Server
 
 after this data base with testing data should be created
 
@@ -16,7 +20,7 @@ run command
 `node server.js`
 
 
-#
+# start Client
 after this go to root folder of this repositrory and run next commands:
 
 `npm install`
