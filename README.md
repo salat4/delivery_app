@@ -1,7 +1,19 @@
 # start DB
-npm install -g json-server.
+Download and install mongoDB and node.js
+Run mongoDB server using official site instruction respective to your OS
+From folder of https://github.com/salat4/delivery_server run command 
+###`npm install`
+###`node initdb.js`
+node initdb.js
+after this data base with testing data should be created
+run command 
+###`node server.js`
+
+
 #
-json-server --watch db.json.
+after this go to root folder of this repositrory and run next commands:
+###`npm install`
+###`npm start`
 
 
 # Getting Started with Create React App
