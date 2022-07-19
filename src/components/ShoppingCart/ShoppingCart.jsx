@@ -21,9 +21,12 @@ const ShoppingCart = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const ids = products.map((product) => product.id);
-
+    let product = []
     async function FetchProduct() {
-      const product = await API.FetchProduct(ids);
+      for (let i = 0; i < ids.length; i++){
+        const products = await API.FetchProduct(ids[i]);
+        product.push(products.product[0])
+      }
       setProductDetails(product);
     }
     FetchProduct();

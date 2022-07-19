@@ -21,12 +21,11 @@ const Shop = () => {
 
   const handleAddToOrder = (e) => {
     if (products.length > 0) {
-      if (products[products.length - 1].id !== e.target.id) {
-        dispatch(
-          addToOrder({ id: e.target.id, amount: 1, name: e.target.name })
-        );
-      } else {
-        dispatch(
+
+
+      for (let i = 0; i < products.length; i++){
+        if (products[i].id === e.target.id) {
+          dispatch(
           setAmount({
             name: e.target.name,
             id: e.target.id,
@@ -35,8 +34,13 @@ const Shop = () => {
                 (element) => element.id === products[products.length - 1].id
               ).amount + 1,
           })
-        );
+          )
+          return
+        }
       }
+      dispatch(
+          addToOrder({ id: e.target.id, amount: 1, name: e.target.name })
+        );
     } else {
       dispatch(addToOrder({ id: e.target.id, amount: 1, name: e.target.name }));
     }
@@ -50,7 +54,7 @@ const Shop = () => {
         <p>Shops</p>
         <ul className={style.Shop__List}>
           {shops &&
-            shops.map((shop) => (
+            shops.shops.map((shop) => (
               <li
                 id={shop.id}
                 onClick={handleShop}
@@ -63,19 +67,18 @@ const Shop = () => {
               </li>
             ))}
         </ul>
-        {}
+        
       </div>
       <div className={style.Product__box}>
         <ul className={style.Product__List}>
           {shops &&
-            shops[id].menu.map((products) =>
+            shops.shops[id].menu.map((products) =>
               products.product.map((product) => (
                 <li
                   key={uuidv4()}
                   id={uuidv4()}
                   className={style.Product__Item}
                 >
-                  {/* <img alt="product"></img> */}
                   <div className={style.Product__Description}>
                     <span className={style.Product__Description__Item}>
                       {product.name}
