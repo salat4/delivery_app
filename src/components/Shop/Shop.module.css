@@ -35,6 +35,9 @@ padding-bottom: 30px;
 border: 1px solid #1D1F22 ;
 border-radius: 10px;
 }
+.Shop__Item:hover{
+    text-decoration: underline;
+}
 .Shop__Item:not(:last-child){
     margin-bottom: 20px;
 }

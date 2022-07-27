@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import style from "./Shop.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addToOrder, setAmount } from "../../redux/orderSlice";
+import Notiflix from 'notiflix';
+
 
 const Shop = () => {
   const products = useSelector((state) => state.order.products);
@@ -35,13 +37,17 @@ const Shop = () => {
               ).amount + 1,
           })
           )
+           Notiflix.Notify.success('Add to Order');
           return
         }
       }
+       Notiflix.Notify.success('Add to Order');
       dispatch(
           addToOrder({ id: e.target.id, amount: 1, name: e.target.name })
         );
     } else {
+      Notiflix.Notify.success('Add to Order');
+
       dispatch(addToOrder({ id: e.target.id, amount: 1, name: e.target.name }));
     }
   };
