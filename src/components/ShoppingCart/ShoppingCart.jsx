@@ -1,7 +1,7 @@
 import * as API from "../Fetch/Fetch";
 import { useSelector, useDispatch } from "react-redux";
 import style from "./ShoppingCart.module.css";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import Notiflix from "notiflix";
 import { useState, useEffect } from "react";
 import { resetOrder, setAmount } from "../../redux/orderSlice";
@@ -11,13 +11,13 @@ const ShoppingCart = () => {
   const products = useSelector((state) => state.order.products);
   const dispatch = useDispatch();
   const [productDetails, setProductDetails] = useState([]);
-  const [personalInfo, setPersonalInfo] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    id: uuidv4(),
-  });
+  // const [personalInfo, setPersonalInfo] = useState({
+  //   name: "",
+  //   email: "",
+  //   phone: "",
+  //   address: "",
+  //   id: uuidv4(),
+  // });
   const navigate = useNavigate();
   useEffect(() => {
     const ids = products.map((product) => product.id);
@@ -34,12 +34,12 @@ const ShoppingCart = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPersonalInfo({
-      name: e.target.name.value,
-      email: e.target.email.value,
-      phone: e.target.tel.value,
-      address: e.target.address.value,
-    });
+    // setPersonalInfo({
+    //   name: e.target.name.value,
+    //   email: e.target.email.value,
+    //   phone: e.target.tel.value,
+    //   address: e.target.address.value,
+    // });
     async function PostOrder() {
       await API.PostOrder({
         name: e.target.name.value,
