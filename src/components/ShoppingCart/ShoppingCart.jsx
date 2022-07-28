@@ -1,7 +1,6 @@
 import * as API from "../Fetch/Fetch";
 import { useSelector, useDispatch } from "react-redux";
 import style from "./ShoppingCart.module.css";
-// import { v4 as uuidv4 } from "uuid";
 import Notiflix from "notiflix";
 import { useState, useEffect } from "react";
 import { resetOrder, setAmount } from "../../redux/orderSlice";
@@ -11,13 +10,7 @@ const ShoppingCart = () => {
   const products = useSelector((state) => state.order.products);
   const dispatch = useDispatch();
   const [productDetails, setProductDetails] = useState([]);
-  // const [personalInfo, setPersonalInfo] = useState({
-  //   name: "",
-  //   email: "",
-  //   phone: "",
-  //   address: "",
-  //   id: uuidv4(),
-  // });
+
   const navigate = useNavigate();
   useEffect(() => {
     const ids = products.map((product) => product.id);
@@ -34,12 +27,7 @@ const ShoppingCart = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setPersonalInfo({
-    //   name: e.target.name.value,
-    //   email: e.target.email.value,
-    //   phone: e.target.tel.value,
-    //   address: e.target.address.value,
-    // });
+
     async function PostOrder() {
       await API.PostOrder({
         name: e.target.name.value,
@@ -65,7 +53,7 @@ const ShoppingCart = () => {
         <form onSubmit={handleSubmit} className={style.Personal__form}>
           <label className={style.Personal__label}>
             Name:
-            <input className={style.Personal__input} type="text" name="name" />
+            <input className={style.Personal__input} type="text" name="name" pattern="[A-Za-z]{1,32}" required/>
           </label>
           <label className={style.Personal__label}>
             Email:
@@ -73,11 +61,12 @@ const ShoppingCart = () => {
               className={style.Personal__input}
               type="email"
               name="email"
+              required
             />
           </label>
-          <label className={style.Personal__label}>
+          <label  className={style.Personal__label}>
             Phone:
-            <input className={style.Personal__input} type="tel" name="tel" />
+            <input className={style.Personal__input} pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" name="tel" required />
           </label>
           <label className={style.Personal__label}>
             Address:
@@ -85,6 +74,7 @@ const ShoppingCart = () => {
               className={style.Personal__input}
               type="text"
               name="address"
+              required
             />
           </label>
 
@@ -109,6 +99,7 @@ const ShoppingCart = () => {
                       products.find((element) => element.id === product.id)
                         .amount
                     }
+                    min="0"
                     onChange={handleAmoutChange}
                     className={style.Product__Description__Amount}
                   ></input>
